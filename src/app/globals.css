@@ -18,6 +18,7 @@ html, body {
   line-height: 1.6;
   scroll-behavior: smooth;
   min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -119,4 +120,152 @@ button:disabled {
     .about-section-content {
         flex-direction: row; /* Switch to row for desktop */
     }
+}
+
+/* --- NEW: MOBILE HEADER STYLES --- */
+
+.mobile-menu-button {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.mobile-menu-button .bar {
+  width: 30px;
+  height: 3px;
+  background-color: var(--color-coffee);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation to 'X' */
+.mobile-menu-button .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.mobile-menu-button .bar.open:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-button .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Positioned right below the header */
+  left: 0;
+  width: 100%;
+  background-color: var(--color-cream);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 5; /* Below header, above page content */
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu-links {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.mobile-menu-links .nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-coffee);
+}
+
+/* Desktop nav is hidden on mobile */
+.desktop-nav {
+  display: flex;
+}
+
+
+/* --- NEW: BOOKING PAGE GRID FIX --- */
+.form-grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+
+/* --- NEW: RESPONSIVE MEDIA QUERIES --- */
+
+@media (max-width: 768px) {
+  /* --- Show Mobile Menu, Hide Desktop --- */
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+  
+  .mobile-menu {
+    display: block; /* Make it visible for the transform to work */
+  }
+
+  /* --- Global Font Size Adjustments --- */
+  h1 {
+    font-size: 2.5rem !important; /* Adjust for hero/page titles */
+  }
+  h2 {
+    font-size: 2rem !important;
+  }
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  p, li {
+    font-size: 1rem !important;
+  }
+
+  /* --- Page Specific Adjustments --- */
+
+  /* Homepage */
+  .hero-button {
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+  }
+  section {
+    padding: 3rem 0 !important;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1rem; /* Reduce padding on mobile */
+  }
+
+  /* Booking Page Grid */
+  .form-grid-2-col {
+    grid-template-columns: 1fr; /* Stack the grid items */
+    gap: 1.5rem;
+  }
+  
+  /* Footer */
+  footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer .container > div {
+    flex-basis: 100%;
+  }
+  footer ul {
+    padding: 0;
+  }
 }

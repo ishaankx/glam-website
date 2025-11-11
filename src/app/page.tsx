@@ -205,17 +205,17 @@ const HomePage = () => {
             <ServiceCard
               title="Skin Glow Treatments"
               description="Rejuvenate and brighten your complexion with our tailored facials."
-              icon="/icons/skin-glow.png"
+              icon="/icons/skin.png"
             />
             <ServiceCard
               title="Brow & Lip Enhancements"
               description="Perfectly sculpted brows and luscious lips to frame your face."
-              icon="/icons/brows-lips.png"
+              icon="/icons/lips.png"
             />
             <ServiceCard
               title="Exquisite Nail Art"
               description="Express your style with stunning nail designs and manicures."
-              icon="/icons/nail-art.png"
+              icon="/icons/nails.png"
             />
           </div>
           <motion.div variants={fadeIn} style={{ textAlign: 'center', marginTop: '3rem' }}>

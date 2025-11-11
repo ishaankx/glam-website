@@ -190,15 +190,15 @@ const BookAppointmentPage = () => {
           
           <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
             
-            {/* 1. Personal Details */}
+            {/* 1. Personal Details - This grid is already responsive */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
               <FormInput label="Full Name" name="name" type="text" value={formData.name} onChange={handleFormChange} required />
               <FormInput label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleFormChange} required />
               <FormInput label="Email Address" name="email" type="email" value={formData.email} onChange={handleFormChange} required />
             </div>
 
-            {/* 2. Date and Time Slot */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            {/* 2. Date and Time Slot - CHANGED to use CSS class */}
+            <div className="form-grid-2-col">
               <FormInput label="Preferred Date" name="date" type="date" value={formData.date} onChange={handleFormChange} required />
               <FormInput label="Preferred Time Slot (e.g., 10:00 AM - 12:00 PM)" name="timeSlot" type="text" value={formData.timeSlot} onChange={handleFormChange} required />
             </div>
